@@ -1,0 +1,42 @@
+.gro-cta{
+	background-color: $tertiary;
+	&-content{
+		@include flex(flex,row wrap,space-between,center);
+		width: 100%;
+		&-title{
+			color: $white;
+			@include fonts(700, clamp(1.5rem, 1.225rem + 1.375vw, 2.875rem),clamp(2.125rem, 1.85rem + 1.375vw, 3.5rem),$gro-font);
+			@include flex(flex,row wrap);
+			width: 50%;
+		}
+		.cta-btn{
+			@include flex(flex,row wrap,center,center);
+			border: solid 1px $white;
+			transition: all 0.3s ease;
+			border-radius: 5px;
+			padding: 18px 36px;
+			cursor: pointer;
+			color: $white;
+			&:hover{
+				@include linear-background;
+				border: solid 1px $tertiary;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width:767px){
+	.gro-cta{
+		&-content{
+			gap: 20px;
+			&-title{
+				@include flex(flex,row wrap);
+				width: 100%;
+			}
+			.cta-btn{
+				padding: 9px 18px;
+				font-size: 14px;
+			}
+		}
+	}
+}

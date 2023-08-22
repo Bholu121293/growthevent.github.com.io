@@ -1,0 +1,93 @@
+.gro-attend{
+	width: 100%;
+	position: relative;
+	background-color: $benifitsbg;
+	&::before{
+		position: absolute;
+		content: "";
+		top: 0;
+		right: 0;
+		background-image: url("../../assets/media/attend/attend-shape1.png");
+		width:clamp(7.5rem, 5.125rem + 11.875vw, 19.375rem);
+		height:clamp(6.9375rem, 4.85rem + 10.4375vw, 17.375rem);
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.gro-attend-shape{
+		position: absolute;
+		right: 50px;
+		bottom: 70px;
+		animation: upDownAnimation 2s ease infinite alternate;
+	}
+	.sectionTitle{
+		justify-content: flex-start;
+		padding-bottom:  clamp(1.5625rem, 1.25rem + 1.5625vw, 3.125rem);
+		.gro-title{
+			text-align: left;
+			justify-content: flex-start;
+			span{
+				font: inherit;
+				color: $primary;
+			}
+		}
+	}
+	.gro-attennd-row{
+		position: relative;
+		width: 100%;
+		padding-bottom: clamp(3.125rem, 2.875rem + 1.25vw, 4.375rem);
+
+	}
+	.gro-roundshape {
+    position: absolute;
+    width: clamp(4.375rem, 3.625rem + 3.75vw, 8.125rem);
+    height: clamp(4.375rem, 3.625rem + 3.75vw, 8.125rem);
+    bottom: clamp(3.125rem, 2.5rem + 3.125vw, 6.25rem);
+		animation: rotateAnimation 4s linear infinite;
+    left: clamp(-1.875rem, -12.6848rem + 22.5499vw, 14.375rem);
+	}
+	&-card{
+		background-color: #181818;
+		padding: clamp(0.9375rem, 0.75rem + 0.9375vw, 1.875rem);
+		border-radius:10px;
+		gap: 10px;
+		@include flex(flex,row wrap);
+		height: 100%;
+		.gro-card-icon{
+			width: clamp(4.375rem, 4rem + 1.875vw, 6.25rem);
+			height: clamp(4.375rem, 4rem + 1.875vw, 6.25rem);
+			@include flex(flex,row wrap,center,center);
+			img{
+				width: 100%;
+				height:auto;
+			}
+		}
+		.gro-title{
+			@include flex(flex,row wrap);
+			width: 100%;
+			color: $white;
+			@include fonts(500,clamp(1rem, 0.9375rem + 0.3125vw, 1.3125rem),clamp(1.5rem, 1.425rem + 0.375vw, 1.875rem),$gro-font);
+		}
+		p{
+			color: rgba($text,0.5);
+			width: 100%;
+			@include fonts(300,clamp(0.8125rem, 0.775rem + 0.1875vw, 1rem),clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem),$gro-font);
+		}
+	}
+}
+@keyframes upDownAnimation {
+	0% {
+			transform: translateY(0);
+	}
+	100% {
+			transform: translateY(-50px); /* Adjust the distance of movement as needed */
+	}
+}
+
+@keyframes rotateAnimation {
+	0% {
+			transform: rotate(10deg);
+	}
+	100% {
+			transform: rotate(360deg);
+	}
+}

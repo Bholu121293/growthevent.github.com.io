@@ -1,0 +1,125 @@
+.gro-aboutus{
+	position: relative;
+	width: 100%;
+	&::before{
+		content: "";
+		position: absolute;
+		background-image: url("../../assets/media/aboutus/element1.png");
+		background-repeat: no-repeat;
+		width: clamp(5.5rem, 0.6997rem + 7.7503vw, 10rem);
+		height: clamp(5rem, 0.4664rem + 7.3197vw, 9.25rem);
+		background-size: cover;
+		top: 30%;
+	}
+	&::after{
+		content: "";
+		position: absolute;
+		background-image: url("../../assets/media/aboutus/element2.png");
+		background-repeat: no-repeat;
+		width: clamp(6.25rem, -8.0843rem + 23.1432vw, 19.6875rem);
+		height: clamp(18.125rem, -23.5445rem + 67.2766vw, 57.1875rem);
+		background-size: contain;
+		top: -40%;
+		right: 0;
+	}
+	&-content{
+		@include flex(flex,row wrap,null,center);
+		width: 100%;
+		height: 100%;
+		&-box{
+			@include flex(flex,row wrap);
+			width: 100%;
+			gap:15px;
+			position: relative;
+			&::before{
+				content: "welcome";
+				@include fonts(600,clamp(2.5rem, -0.8261rem + 6.9384vw, 7.5rem),clamp(3.5rem, 0.2155rem + 6.8517vw, 8.4375rem),$gro-font);
+				color: transparent;
+				-webkit-text-stroke: 0.5px rgba($text,0.2);
+				position: absolute;
+				top: clamp(-1.875rem, 2.1253rem + -6.4586vw, -5.625rem);
+			}
+			.gro-box-title{
+				@include flex(flex,row wrap,null,center);
+				width: 100%;
+				gap:15px;
+				color: rgba($text,0.5);
+				@include fonts(300,clamp(0.875rem, 0.775rem + 0.5vw, 1.375rem),clamp(1.25rem, 1.125rem + 0.625vw, 1.875rem),$gro-font);
+				span{
+					width: 15px;
+					height: 3px;
+					background-color: rgba($text,0.5);
+				}
+			}
+			.gro-box-subtitle{
+				width: 100%;
+				@include fonts(700,clamp(1.5rem, 1.35rem + 0.75vw, 2.25rem),clamp(2.125rem, 1.975rem + 0.75vw, 2.875rem),$gro-font);
+				color: $white;
+				span{
+					color: $primary;
+				}
+			}
+			p{
+				color: rgba($text,0.5);
+				@include fonts(300,clamp(0.875rem, 0.6255rem + 0.5204vw, 1.25rem),clamp(1.375rem, 1.0424rem + 0.6938vw, 1.875rem),$gro-font);
+			}
+			.btn-secondry{
+				@include flex(flex,row wrap,center,center);
+				padding: 16px 32px;
+				@include fonts(300,clamp(0.875rem, 0.6255rem + 0.5204vw, 1.25rem),clamp(1.375rem, 1.0424rem + 0.6938vw, 1.875rem),$gro-font);
+				background-color: rgba($text,0.1);
+				color: $white;
+				transition: all 0.3s ease;
+				border-radius: 5px;
+				text-transform: capitalize;
+				&:hover{
+					@include linear-background;
+				}
+			}
+		}
+		&-image{
+			@include flex(flex,row wrap);
+			width: 100%;
+			position: relative;
+			.gro-about-image1{
+				@include flex(flex,row wrap);
+				margin-left: 10%;
+				border-radius: 10px;
+				overflow: hidden;
+				img{
+					width: 100%;
+					object-fit: cover;
+					object-position: center;
+					transition: transform 0.3s ease-in-out;
+					&:hover{
+						transform: scale(1.1);
+					}
+				}
+			}
+			.gro-about-image2{
+				@include flex(flex,row wrap);
+				border-radius: 10px;
+				overflow: hidden;
+				max-width: 282px;
+				margin-top: -80px;
+				img{
+					width: 100%;
+					object-fit: cover;
+					object-position: center;
+					transition: transform 0.3s ease-in-out;
+					&:hover{
+						transform: scale(1.1);
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width:991px){
+	.gro-aboutus{
+		.row{
+			flex-direction: column-reverse;
+		}
+	}
+}

@@ -1,0 +1,107 @@
+.gro-header {
+  padding: 0 30px;
+  height: 100px;
+  @include flex(flex, row wrap, space-between, center);
+  width: 100%;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+  background-color: $bglight;
+  .gro-logo{
+    width: clamp(6.25rem, 4.8375rem + 7.0625vw, 13.3125rem);
+    height: auto;
+    svg{
+      width: 100%;
+      height: auto
+    }
+  }
+  ul {
+    @include flex(flex, row wrap);
+    gap: clamp(0.9375rem, 0.2695rem + 1.8587vw, 2.5rem);
+    li {
+      list-style: none;
+      a {
+        color: rgba($white,0.5);
+        text-transform: uppercase;
+        @include fonts(
+          400,
+          clamp(0.875rem, 0.7147rem + 0.4461vw, 1.25rem),
+          clamp(1.25rem, 1.0897rem + 0.4461vw, 1.625rem),
+          $gro-font
+        );
+        padding-bottom: 15px;
+        border-bottom: solid 1px rgba($white, 0);
+        transition: all 0.3s ease;
+        &:hover {
+          color: $white;
+          border-bottom: solid 1px rgba($white, 1);
+        }
+        &.active {
+          color: $primary;
+          border-bottom: solid 1px rgba($primary, 1);
+        }
+      }
+    }
+  }
+  &.sticky {
+    background-color: $bglight;
+    height: 90px;
+    transition: all 0.3s ease;
+  }
+}
+.actions {
+  @include flex(flex, row wrap, null, center);
+  .sidebar-open-icon {
+    cursor: pointer;
+    border-radius: 5px;
+    @include flex(none, row wrap, center, center);
+    // padding: 15px;
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.gro-header.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9996;
+}
+@media only screen and (max-width: 1199px) {
+  .gro-header {
+    padding: 0 25px;
+    ul {
+      display: none;
+    }
+    .actions {
+      gap: 20px;
+      .btn-groprimary{
+        display: none;
+      }
+      .sidebar-open-icon {
+        display: block;
+        svg{
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .gro-header {
+    padding: 0 15px;
+    height: 70px;
+    &.sticky{
+      height: 70px;
+    }
+    .actions {
+      .btn-groprimary {
+        display: none;
+      }
+    }
+  }
+}

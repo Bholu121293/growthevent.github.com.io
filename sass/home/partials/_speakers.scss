@@ -1,0 +1,67 @@
+.gro-speaker{
+	width: 100%;
+	background: url("../../assets/media/speakers/speakerbg.png"), #040404 50% / cover no-repeat;
+	position: relative;
+	&::before{
+		content: "";
+		position: absolute;
+		right: 0;
+		top: clamp(-2.5rem, 0.1668rem + -4.3057vw, -5rem);
+		background: url("../../assets/media/speakers/playicon.png");
+		width: clamp(3.125rem, -0.2086rem + 5.3821vw, 6.25rem);
+		height: clamp(4.9375rem, -0.3295rem + 8.5038vw, 9.875rem);
+		background-size: contain;
+	}
+	&-card{
+		background-color: #171515;
+		padding: clamp(1.25rem, 1.125rem + 0.625vw, 1.875rem);
+		border-radius: 15px;
+		.col-lg-6.col-md-12.col-sm-12 {
+			display: flex;
+			align-items: center;
+	}
+		&-image{
+			@include flex(flex,row wrap);
+			width: 100%;
+			border-radius: 5px;
+			overflow: hidden;
+			img{
+				width: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+		&-content{
+			@include flex(flex,row wrap);
+			width: 100%;
+			gap: 10px;
+			.gro-speaker-name{
+				color: $white;
+				width: 100%;
+				@include fonts(700, clamp(1.5rem, 1.4rem + 0.5vw, 2rem), clamp(2rem, 1.85rem + 0.75vw, 2.75rem),$gro-font);
+			}
+			.gro-speaker-subtitle{
+				color: $primary;
+				width: 100%;
+				position: relative;
+				padding-bottom: 17px;
+				@include fonts(300, clamp(0.875rem, 0.825rem + 0.25vw, 1.125rem),clamp(1.375rem, 1.325rem + 0.25vw, 1.625rem),$gro-font);
+				&::before{
+					content: "";
+					position: absolute;
+					width: 100px;
+					height: 1px;
+					background-color: rgba($text,0.1);
+					bottom: 0;
+				}
+			}
+			p{
+				@include fonts(300, clamp(0.875rem, 0.825rem + 0.25vw, 1.125rem),clamp(1.375rem, 1.325rem + 0.25vw, 1.625rem),$gro-font);
+				color: rgba($white,0.5);
+			}
+		}
+	}
+}
+@media only screen and (max-width:991px){
+
+}

@@ -1,0 +1,105 @@
+body {
+  @include fonts(400, 18px, 26px, $gro-font);
+  margin: 0;
+  padding: 0;
+  color: $white;
+  background-color: $black;
+  transform: none;
+  * {
+    box-shadow: none;
+    outline: none;
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+    }
+  }
+  a {
+    text-decoration: none;
+    &:hover {
+      color: currentColor;
+    }
+  }
+  p {
+    margin-bottom: 0;
+    color: $white;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+h1 {
+  @include fonts(
+    900,
+    clamp(rem(24,24), -2.9447rem + 9.2597vw, rem(64,64)),
+    clamp(rem(32,32), -3.3336rem + 11.1116vw, rem(80,80)),
+    $gro-font
+  );
+}
+h2 {
+  @include fonts(800, rfs-value(48px), rfs-value(60px), $gro-font);
+}
+h3 {
+  @include fonts(700, rfs-value(40px), rfs-value(52px), $gro-font);
+}
+h4 {
+  @include fonts(600, rfs-value(32px), rfs-value(44px), $gro-font);
+}
+h5 {
+  @include fonts(600, rfs-value(26px), rfs-value(36px), $gro-font);
+}
+h6 {
+  @include fonts(600, rfs-value(22px), rfs-value(32px), $gro-font);
+}
+//selections
+::-moz-selection {
+  background: rgba($tertiary, 0.1);
+}
+::selection {
+  background: rgba($tertiary, 0.1);
+}
+//scrollbar
+::-webkit-scrollbar {
+  width:5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba($tertiary, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background-color: $tertiary;
+}
+//end scrollbar
+
+.gro-main {
+  width: 100%;
+  height: auto;
+}
+.row {
+  row-gap: 25px;
+}
+.btn-primary {
+  @include flex(flex, row wrap, center, center);
+  border: none;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  @include linear-background;
+  color: $white;
+  text-transform: uppercase;
+  padding: clamp(0.625rem, 0.4914rem + 0.3717vw, 0.9375rem) clamp(1.25rem, 0.9828rem + 0.7435vw, 1.875rem);
+}
+section {
+  padding-top: clamp(1.875rem, 0.2718rem + 4.461vw, 5.625rem);
+  padding-bottom: clamp(1.875rem, 0.2718rem + 4.461vw, 5.625rem);
+}

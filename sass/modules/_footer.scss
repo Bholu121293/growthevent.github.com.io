@@ -1,0 +1,47 @@
+footer{
+	width: 100%;
+	background-color: rgba($bglight,0.5);
+	padding: 12px 0;
+	.gro-footer-logo{
+		@include flex(flex,row wrap,null,center);
+		width: 100%;
+	}
+	.gro-copyright{
+		@include flex(flex,row wrap,flex-end,center);
+		width: 100%;
+		height: 100%;
+		a{
+			color: $primary;
+			transition: all 0.3s ease;
+			&:hover{
+				color: $tertiary;
+			}
+		}
+	}
+}
+@media only screen and (max-width:991px){
+	footer{
+		.gro-footer-logo{
+			@include flex(flex,row wrap,center,center);
+			width: 120px;
+			margin: 0 auto;
+			img{
+				width: 100%;
+				height: auto;
+			}
+
+		}
+		.gro-copyright{
+			@include flex(flex,row wrap,center,center);
+			font-size: 14px;
+			a{
+				color: $primary;
+				transition: all 0.3s ease;
+
+				&:hover{
+					color: $tertiary;
+				}
+			}
+		}
+	}
+}

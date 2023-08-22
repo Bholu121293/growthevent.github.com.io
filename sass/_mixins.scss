@@ -1,0 +1,137 @@
+@use "sass:math";
+
+//flex
+@mixin flex(
+  $display: null,
+  //$direction: null,
+  //flex-direction: row | row-reverse | column | column-reverse;
+  //$wrap: null,
+  //flex-wrap: nowrap | wrap | wrap-reverse;
+  $flow: null,
+  $justify-c: null,
+  //flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe;
+  $align-i: null,
+  //stretch | flex-start | flex-end | center | baseline | first baseline | last baseline | start | end | self-start | self-end + ... safe | unsafe;
+  $align-c: null,
+  //flex-start | flex-end | center | space-between | space-around | space-evenly | stretch | start | end | baseline | first baseline | last baseline + ... safe | unsafe;
+  $align-s: null //auto | flex-start | flex-end | center | baseline | stretch;
+) {
+  display: $display;
+  flex-flow: $flow;
+  justify-content: $justify-c;
+  align-items: $align-i;
+  align-content: $align-c;
+  align-self: $align-s;
+}
+//btn
+@mixin btn(
+  $display: null,
+  $flow: null,
+  $justify-c: null,
+  $align-i: null,
+  $align-c: null,
+  $align-s: null,
+  $font: null,
+  $color: null,
+  $border: null,
+  $border-radius: null,
+  $padding: null,
+  $bg-color: null,
+  $text-transform: null,
+  $width: null
+) {
+  display: $display;
+  flex-flow: $flow;
+  justify-content: $justify-c;
+  align-items: $align-i;
+  align-content: $align-c;
+  align-self: $align-s;
+  font: $font;
+  color: $color;
+  border: $border;
+  border-radius: $border-radius;
+  padding: $padding;
+  background-color: $bg-color;
+  transition: $transition-base;
+  text-transform: $text-transform;
+  width: $width;
+}
+//fonts
+@mixin fonts($font-w: null, $font-s: null, $font-l: null, $font-f: null) {
+  font: $font-w #{$font-s}/#{$font-l} $font-f;
+}
+//bg image
+@function getImage($src, $imageName) {
+  @return map-get(map-get($image-storage, $src), $imageName);
+}
+//bg image
+// @mixin bg($bg: null, $bg-alpha: null) {
+//   background-color: rgba($bg $bg-alpha);
+// }
+@function bgc($bg, $opacity) {
+  @return rgba($bg, $opacity);
+}
+//box shadow
+@mixin shadow($x: null, $y: null, $blur: null, $color: null) {
+  box-shadow: $x $y $blur $color;
+}
+//position
+@mixin position($position: null, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+//px to rem
+$html-font-size: 16px;
+@function stripUnit($value) {
+  // @return $value / ($value * 0 + 1);
+  @return math.div($value, $value * 0 + 1);
+}
+// @function rem($pxValue) {
+//   // @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+//   @return #{math.div(stripUnit($pxValue), stripUnit($html-font-size))}rem;
+// }
+//background
+@mixin bg(
+  $image: null,
+  $position: null,
+  $size: null,
+  $repeat: null,
+  $attachment: null,
+  $origin: null,
+  $clip: null,
+  $color: null
+) {
+  background: $image $position #{"/"} $size $repeat $attachment $origin $clip $color;
+}
+//placeholder
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root("::-webkit-input-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root("::-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-ms-input-placeholder") {
+    @content;
+  }
+}
+
+@mixin linear-background {
+  background: linear-gradient(134deg, #B621FE 0%, #6381FB 56.82%, #2EBEF9 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}

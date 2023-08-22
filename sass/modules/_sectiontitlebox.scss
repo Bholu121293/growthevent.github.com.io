@@ -1,0 +1,21 @@
+.sectionTitle{
+	@include flex(flex,row wrap,center);
+	span{
+		@include fonts(600,clamp(3.75rem, 1.2554rem + 5.2038vw, 7.5rem),clamp(3.5rem, 0.2155rem + 6.8517vw, 8.4375rem),$gro-font);
+		color: transparent;
+		-webkit-text-stroke: 0.5px rgba($text,0.2);
+	}
+	.gro-title{
+		@include flex(flex,row wrap,center,center);
+		width: 100%;
+		@include fonts(700,clamp(2.125rem, 1.85rem + 1.375vw, 3.5rem),clamp(2.75rem, 2.425rem + 1.625vw, 4.375rem),$gro-font);
+		color: $white;
+		margin-top:clamp(-1.875rem, 0.1251rem + -3.2293vw, -3.75rem);
+	}
+	.gro-subTitle{
+		color: rgba($text,0.5);
+		@include fonts(300, clamp(0.875rem, 0.825rem + 0.25vw, 1.125rem),clamp(1.25rem, 1.175rem + 0.375vw, 1.625rem),$gro-font);
+		width: 100%;
+		text-align: center;
+	}
+}
